@@ -7,7 +7,7 @@
   "license": "ISC",
   "scripts": {
     "build": "npm run build --ws",
-    "start": "node dist/index.js"
+    "start": "cross-env NODE_ENV=production node src/index.js"
   },
   "workspaces": [
     "modules/*"
@@ -19,6 +19,7 @@
   "type": "module",
   "dependencies": {
     "@mcansh/remix-raw-http": "^1.0.2",
+    "cross-env": "^7.0.3",
     "next": "14.1.4",
     "tinybench": "^2.6.0"
   }

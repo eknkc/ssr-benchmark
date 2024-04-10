@@ -32,5 +32,5 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 ```sh
 $ npm install
 $ npm run build
-$ node src/index.js
+$ npm start
 ```
