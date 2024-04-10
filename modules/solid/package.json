@@ -1,0 +1,19 @@
+{
+  "name": "solid-benchmark",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build --ssr src/entry-server.tsx --outDir dist"
+  },
+  "dependencies": {
+    "solid-js": "^1.8.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.4",
+    "vite": "^5.0.10",
+    "vite-plugin-solid": "^2.8.0"
+  },
+  "main": "dist/entry-server.js"
+}

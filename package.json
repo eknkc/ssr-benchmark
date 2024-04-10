@@ -1,0 +1,25 @@
+{
+  "name": "ssr-benchmark",
+  "version": "1.0.0",
+  "description": "Testing various Web Frameworks SSR rendering performance",
+  "main": "index.js",
+  "author": "Ekin Koc",
+  "license": "ISC",
+  "scripts": {
+    "build": "npm run build --ws",
+    "start": "node dist/index.js"
+  },
+  "workspaces": [
+    "modules/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.4"
+  },
+  "type": "module",
+  "dependencies": {
+    "@mcansh/remix-raw-http": "^1.0.2",
+    "next": "14.1.4",
+    "tinybench": "^2.6.0"
+  }
+}
