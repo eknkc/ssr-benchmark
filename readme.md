@@ -14,7 +14,7 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 | 3       | 'vue'     | '116'   | 8617705           | '±0.80%' | 2321    |
 | 4       | 'next'    | '54'    | 18511079          | '±0.58%' | 1081    |
 
-- It looks like Next.JS is around 5 times slower than vanilla react ssr.
+- It looks like Next.JS is around 5 times slower than vanilla react ssr. My previous [results](https://twitter.com/eknkc/status/1777807651235069964) only had a single `<span>hello world</span>` so I guess Next.JS has a large initialization coefficient. When the layout / data goes complex it starts catching up.
 - Solid does a great job. It is not just a lot faster, it also embeds the hydration data into the html so it should be compared to remix / next instead of vanilla react or vue.
 
 ## Test Environment
