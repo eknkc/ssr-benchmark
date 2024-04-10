@@ -6,13 +6,14 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 
 ## Results
 
-| (index) | Task Name | ops/sec | Average Time (ns)  | Margin   | Samples | relative to react |
-| ------- | --------- | ------- | ------------------ | -------- | ------- | ----------------- |
-| 0       | 'react'   | 769     | 1299941.9410284825 | '±0.26%' | 7693    |                   |
-| 1       | 'solid'   | 569     | 1755197.9212101486 | '±0.37%' | 5698    | '1.35 x slower'   |
-| 2       | 'remix'   | 453     | 2205641.5302142412 | '±0.43%' | 4534    | '1.70 x slower'   |
-| 3       | 'vue'     | 310     | 3224929.1229540207 | '±1.10%' | 3101    | '2.48 x slower'   |
-| 4       | 'next'    | 53      | 18768490.901360147 | '±0.74%' | 533     | '14.51 x slower'  |
+| (index) | name        | ops/sec | average (ms)       | margin   | samples | relative to react |
+| ------- | ----------- | ------- | ------------------ | -------- | ------- | ----------------- |
+| 0       | 'react'     | 772     | 1.2943212499250736 | '±0.29%' | 7727    |                   |
+| 1       | 'sveltekit' | 609     | 1.640519383463647  | '±0.30%' | 6096    | '1.27 x slower'   |
+| 2       | 'solid'     | 573     | 1.7426678530948465 | '±0.42%' | 5739    | '1.35 x slower'   |
+| 3       | 'remix'     | 463     | 2.1593855976646634 | '±0.38%' | 4632    | '1.67 x slower'   |
+| 4       | 'vue'       | 312     | 3.1983727098159376 | '±1.07%' | 3127    | '2.47 x slower'   |
+| 5       | 'next'      | 53      | 18.85410655846928  | '±0.85%' | 531     | '14.57 x slower'  |
 
 - Table has been updated thanks to [kiliman](https://github.com/kiliman). Remix now uses [defer](https://remix.run/docs/en/main/utils/defer) yielding much better results.
 
