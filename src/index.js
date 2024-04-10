@@ -14,7 +14,7 @@ export async function run(handler) {
   return response.times;
 }
 
-const bench = new Bench({ time: 10000 });
+const bench = new Bench({ time: 10_000 });
 
 const handlers = [
   {
@@ -42,7 +42,19 @@ for (let handler of handlers) {
 await bench.warmup();
 await bench.run();
 
-console.table(bench.table());
+const results = bench
+  .table()
+  .map((x) => ({ ...x, "ops/sec": parseInt(x["ops/sec"]) }))
+  .toSorted((a, b) => b["ops/sec"] - a["ops/sec"]);
+
+const maxOps = Math.max(...results.map((x) => x["ops/sec"]));
+console.table(
+  results.map((x, i) => ({
+    ...x,
+    [`relative to ${results[0]["Task Name"]}`]:
+      i === 0 ? "" : `${(maxOps / parseInt(x["ops/sec"])).toFixed(2)} x slower`,
+  }))
+);
 console.log();
 
 console.log("Check out the actual render results:");
