@@ -25,6 +25,7 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 - Tests ran on Node.JS `v20.6.1` on my Macbook Pro M1 Pro
 - Each framework renders a table of 1000 rows, each containing two uuid columns.
 - The table data is emulated as async and requires Suspense on react, solid and vue. On Next it is loaded in an async RSC component. On Remix it is loaded in a route `loader` function.
+- Streaming rendering used on solid, react and vue.
 
 ## Running
 

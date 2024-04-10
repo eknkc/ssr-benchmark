@@ -21,7 +21,7 @@ function Table() {
   );
 }
 
-function Entry(props: { entry: { id: string; name: string; asyncData?: () => Promise<string> } }) {
+function Entry(props: { entry: { id: string; name: string } }) {
   return (
     <tr>
       <td>{props.entry.id}</td>
