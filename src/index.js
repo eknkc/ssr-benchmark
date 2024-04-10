@@ -14,7 +14,7 @@ export async function run(handler) {
   return response.times;
 }
 
-const bench = new Bench({ time: 1000 });
+const bench = new Bench({ time: 10000 });
 
 const handlers = [
   {
