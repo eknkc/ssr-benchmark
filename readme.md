@@ -6,16 +6,15 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 
 ## Results
 
-| (index) | Task Name | ops/sec | Average Time (ns) | Margin   | Samples |
-| ------- | --------- | ------- | ----------------- | -------- | ------- |
-| 0       | 'solid'   | '547'   | 1825861           | '±0.31%' | 10954   |
-| 1       | 'react'   | '227'   | 4392914           | '±0.27%' | 4553    |
-| 2       | 'remix'   | '163'   | 6133631           | '±0.58%' | 3261    |
-| 3       | 'vue'     | '116'   | 8617705           | '±0.80%' | 2321    |
-| 4       | 'next'    | '54'    | 18511079          | '±0.58%' | 1081    |
+| (index) | Task Name | ops/sec | Average Time (ns)  | Margin   | Samples | relative to react |
+| ------- | --------- | ------- | ------------------ | -------- | ------- | ----------------- |
+| 0       | 'react'   | 769     | 1299941.9410284825 | '±0.26%' | 7693    |                   |
+| 1       | 'solid'   | 569     | 1755197.9212101486 | '±0.37%' | 5698    | '1.35 x slower'   |
+| 2       | 'remix'   | 453     | 2205641.5302142412 | '±0.43%' | 4534    | '1.70 x slower'   |
+| 3       | 'vue'     | 310     | 3224929.1229540207 | '±1.10%' | 3101    | '2.48 x slower'   |
+| 4       | 'next'    | 53      | 18768490.901360147 | '±0.74%' | 533     | '14.51 x slower'  |
 
-- It looks like Next.JS is around 5 times slower than vanilla react ssr. My previous [results](https://twitter.com/eknkc/status/1777807651235069964) only had a single `<span>hello world</span>` so I guess Next.JS has a large initialization coefficient. When the layout / data goes complex it starts catching up.
-- Solid does a great job. It is not just a lot faster, it also embeds the hydration data into the html so it should be compared to remix / next instead of vanilla react or vue.
+- Table has been updated thanks to [kiliman](https://github.com/kiliman). Remix now uses [defer](https://remix.run/docs/en/main/utils/defer) yielding much better results.
 
 ## Test Environment
 
