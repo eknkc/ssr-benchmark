@@ -6,7 +6,7 @@ import {
   webpackRscLayerName,
 } from "@mfng/webpack-rsc";
 
-const outputDirname = path.join(import.meta.dirname, "dist");
+const outputDirname = path.join(process.cwd(), "dist");
 
 /**
  * @type {import('@mfng/webpack-rsc').ClientReferencesMap}
