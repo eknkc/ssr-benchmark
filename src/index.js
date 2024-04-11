@@ -31,6 +31,10 @@ const handlers = [
     name: "vue",
     handler: await import("vue-benchmark").then((x) => x.buildHandler()),
   },
+  {
+    name: "mfng",
+    handler: await import("mfng-benchmark").then((x) => x.buildHandler()),
+  },
   { name: "remix", handler: await buildRemixHandler() },
   { name: "next", handler: await buildNextHandler() },
   { name: "nuxt", handler: await buildNuxtHandler() },
