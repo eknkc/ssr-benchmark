@@ -4,8 +4,7 @@ export function logResultsTable(bench) {
     "ops/sec": task.result.error
       ? "NaN"
       : parseInt(task.result.hz.toString(), 10).toString(),
-    "average (ms)": task.result.error ? "NaN" : task.result.mean,
-    margin: task.result.error ? "NaN" : `\xb1${task.result.rme.toFixed(2)}%`,
+    "average (ms)": task.result.error ? "NaN" : task.result.mean.toFixed(3),
     samples: task.result.error ? "NaN" : task.result.samples.length,
     "body (kb)": task.result.error
       ? "NaN"
