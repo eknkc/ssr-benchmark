@@ -25,6 +25,10 @@ const handlers = [
     handler: await import("solid-benchmark").then((x) => x.buildHandler()),
   },
   {
+    name: "kita",
+    handler: await import("kita-benchmark").then((x) => x.handler),
+  },
+  {
     name: "react",
     handler: await import("react-benchmark").then((x) => x.buildHandler()),
   },
