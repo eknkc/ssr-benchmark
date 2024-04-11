@@ -1,13 +1,9 @@
 <script lang="ts">
-  import Entry from "../components/Entry.svelte";
+  import Table from "../components/Table.svelte";
 
-  export let data: any;
+  export let data;
 </script>
 
 <main>
-  <table>
-    {#each data.entries as entry}
-      <Entry {entry} />
-    {/each}
-  </table>
+  <Table entries={data.entries} />
 </main>
