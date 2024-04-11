@@ -36,6 +36,10 @@ const handlers = [
     name: "mfng",
     handler: await import("mfng-benchmark").then((x) => x.buildHandler()),
   },
+  {
+    name: "marko",
+    handler: await import("marko-benchmark").then((x) => x.buildHandler()),
+  },
   { name: "remix", handler: await buildRemixHandler() },
   { name: "next", handler: await buildNextHandler() },
   { name: "next-pages", handler: await buildNextPagesHandler() },
