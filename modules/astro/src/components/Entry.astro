@@ -1,0 +1,13 @@
+---
+import type { testData } from "testdata";
+
+type Props = {
+  data: Awaited<ReturnType<typeof testData>>[0];
+};
+
+const { data } = Astro.props;
+---
+<tr>
+  <td>{data.id}</td>
+  <td>{data.name}</td>
+</tr>

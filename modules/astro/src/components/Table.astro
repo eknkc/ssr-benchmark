@@ -1,0 +1,17 @@
+---
+import type { testData } from "testdata";
+import Entry from '../components/Entry.astro'
+
+type Props = {
+  data: Awaited<ReturnType<typeof testData>>;
+};
+
+const { data } = Astro.props;
+---
+<table>
+  <tbody>
+    {data.map((entry) => (
+      <Entry data={entry} />
+    ))}
+  </tbody>
+</table>

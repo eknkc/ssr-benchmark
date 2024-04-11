@@ -1,0 +1,15 @@
+{
+  "name": "astro-benchmark",
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "astro check && astro build",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/node": "^8.2.5",
+    "astro": "^4.6.0",
+    "typescript": "^5.4.5"
+  }
+}
