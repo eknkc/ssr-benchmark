@@ -44,9 +44,12 @@ export class IncomingMessage extends Readable {
   }
 }
 
+const decoder = new TextDecoder();
+
 export class ServerResponse extends Writable {
   _res;
 
+  body;
   length = 0;
   times = { start: performance.now(), end: 0, headers: 0 };
   await = new Promise((res) => (this._res = res));
@@ -68,7 +71,7 @@ export class ServerResponse extends Writable {
 
   _headers = {};
 
-  constructor(req) {
+  constructor(req, collect = false) {
     super({
       write: (chunk, _, callback) => {
         if (!this.headersSent) {
@@ -76,6 +79,11 @@ export class ServerResponse extends Writable {
         }
 
         this.length += chunk.length;
+
+        if (collect) {
+          this.body = (this.body || "") + decoder.decode(chunk);
+        }
+
         callback();
       },
       destroy: () => {
