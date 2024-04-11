@@ -6,15 +6,18 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 
 ## Results
 
-| (index) | name        | ops/sec | average (ms)       | margin   | samples | relative to react |
-| ------- | ----------- | ------- | ------------------ | -------- | ------- | ----------------- |
-| 0       | 'react'     | 770     | 1.297837667238734  | '±0.25%' | 7706    |                   |
-| 1       | 'sveltekit' | 612     | 1.6316538886157232 | '±0.30%' | 6129    | '1.26 x slower'   |
-| 2       | 'solid'     | 589     | 1.6975613133730456 | '±0.40%' | 5891    | '1.31 x slower'   |
-| 3       | 'remix'     | 467     | 2.137902762121296  | '±0.41%' | 4678    | '1.65 x slower'   |
-| 4       | 'vue'       | 297     | 3.365587217730757  | '±1.17%' | 2972    | '2.59 x slower'   |
-| 5       | 'nuxt'      | 290     | 3.445951336749581  | '±0.95%' | 2902    | '2.66 x slower'   |
-| 6       | 'next'      | 54      | 18.410872874233654 | '±0.83%' | 544     | '14.26 x slower'  |
+| (index) | name        | ops/sec | average (ms)       | margin   | samples | body (kb) | duplication | relative to react |
+| ------- | ----------- | ------- | ------------------ | -------- | ------- | --------- | ----------- | ----------------- |
+| 0       | 'react'     | 770     | 1.2980486485074243 | '±0.17%' | 11556   | '97.28'   | 'x1.00'     | ''                |
+| 1       | 'sveltekit' | 617     | 1.6202060651259027 | '±0.26%' | 9259    | '184.46'  | 'x2.00'     | '1.25 x slower'   |
+| 2       | 'solid'     | 600     | 1.6662520333606508 | '±0.30%' | 9003    | '215.93'  | 'x2.00'     | '1.28 x slower'   |
+| 3       | 'remix'     | 471     | 2.120777278578165  | '±0.32%' | 7073    | '189.10'  | 'x2.00'     | '1.63 x slower'   |
+| 4       | 'vue'       | 297     | 3.36266085586971   | '±0.96%' | 4462    | '96.72'   | 'x1.00'     | '2.59 x slower'   |
+| 5       | 'nuxt'      | 279     | 3.5809983866799273 | '±0.77%' | 4189    | '97.57'   | 'x1.00'     | '2.76 x slower'   |
+| 6       | 'next'      | 54      | 18.312528462526274 | '±0.59%' | 820     | '284.64'  | 'x2.00'     | '14.26 x slower'  |
+
+- **body** is the response body length in kb
+- **duplication** is the data duplication factor. 2x means each rendered data item has been observed twice in the response. It is required for hydration to work.
 
 - Table has been updated thanks to [kiliman](https://github.com/kiliman). Remix now uses [defer](https://remix.run/docs/en/main/utils/defer) yielding much better results.
 

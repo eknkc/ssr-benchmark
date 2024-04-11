@@ -5,18 +5,19 @@ import { buildNextHandler } from "./next.js";
 import { buildNuxtHandler } from "./nuxt.js";
 import { buildSveltekitHandler } from "./svelte.js";
 import http from "node:http";
+import { getDuplicationFactor, logResultsTable } from "./result-format.js";
 
-export async function run(handler) {
+export async function run(handler, collect = false) {
   const request = new IncomingMessage();
-  const response = new ServerResponse(request);
+  const response = new ServerResponse(request, collect);
 
   handler(request, response);
 
   await response.await;
-  return response.times;
+  return response;
 }
 
-const bench = new Bench({ time: 10_000 });
+const bench = new Bench({ time: 15_000 });
 
 const handlers = [
   {
@@ -46,31 +47,18 @@ for (let handler of handlers) {
 await bench.warmup();
 await bench.run();
 
-const table = bench.tasks.map((task) => ({
-  name: task.name,
-  "ops/sec": task.result.error
-    ? "NaN"
-    : parseInt(task.result.hz.toString(), 10).toString(),
-  "average (ms)": task.result.error ? "NaN" : task.result.mean,
-  margin: task.result.error ? "NaN" : `\xb1${task.result.rme.toFixed(2)}%`,
-  samples: task.result.error ? "NaN" : task.result.samples.length,
-}));
+for (let handler of handlers) {
+  let response = await run(handler.handler, true);
 
-const results = table
-  .map((x) => ({ ...x, "ops/sec": parseFloat(x["ops/sec"]) }))
-  .toSorted((a, b) => b["ops/sec"] - a["ops/sec"]);
+  bench.getTask(handler.name).setResult({
+    bodyLength: response.length,
+    duplicationFactor: getDuplicationFactor(response.body),
+  });
+}
 
-const maxOps = Math.max(...results.map((x) => x["ops/sec"]));
+logResultsTable(bench);
 
-console.table(
-  results.map((x, i) => ({
-    ...x,
-    [`relative to ${results[0]["name"]}`]:
-      i === 0 ? "" : `${(maxOps / parseInt(x["ops/sec"])).toFixed(2)} x slower`,
-  }))
-);
 console.log();
-
 console.log("Check out the actual render results:");
 
 for (let handler of handlers) {
