@@ -3,6 +3,7 @@ import { IncomingMessage, ServerResponse } from "./http.js";
 import { buildRemixHandler } from "./remix.js";
 import { buildNextHandler } from "./next.js";
 import { buildSveltekitHandler } from "./sveltekit.js";
+import { buildNuxtHandler } from "./nuxt.js";
 import http from "node:http";
 
 export async function run(handler) {
@@ -32,6 +33,7 @@ const handlers = [
   },
   { name: "remix", handler: await buildRemixHandler() },
   { name: "next", handler: await buildNextHandler() },
+  { name: "nuxt", handler: await buildNuxtHandler() },
   { name: "sveltekit", handler: await buildSveltekitHandler() },
   { name: "svelte", handler: await import("svelte-benchmark/build/handler.js").then((x) => x.buildHandler()) },
 ];
