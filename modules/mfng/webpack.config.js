@@ -6,7 +6,7 @@ import {
   webpackRscLayerName,
 } from "@mfng/webpack-rsc";
 
-const outputDirname = path.join(import.meta.dirname, `dist`);
+const outputDirname = path.join(import.meta.dirname, "dist");
 
 /**
  * @type {import('@mfng/webpack-rsc').ClientReferencesMap}
@@ -18,25 +18,30 @@ const serverReferencesMap = new Map();
  * @type {import('webpack').RuleSetUseItem}
  */
 const serverSwcLoader = {
-  loader: `swc-loader`,
-  options: { env: { targets: { node: 20 } } },
+  loader: "swc-loader",
+  options: {
+    env: {
+      targets: { node: 20 },
+    },
+    jsc: { transform: { react: { runtime: "automatic" } } },
+  },
 };
 
 /**
  * @type {import('webpack').Configuration}
  */
 export default {
-  name: `server`,
-  entry: `./src/entry-server.tsx`,
-  target: `node`,
+  name: "server",
+  entry: "./src/entry-server.tsx",
+  target: "node",
   output: {
-    filename: `index.js`,
+    filename: "index.js",
     path: outputDirname,
-    libraryTarget: `module`,
-    chunkFormat: `module`,
+    libraryTarget: "module",
+    chunkFormat: "module",
   },
   resolve: {
-    extensions: [`.tsx`, `...`],
+    extensions: [".tsx", "..."],
   },
   module: {
     rules: [
@@ -46,7 +51,7 @@ export default {
       },
       {
         issuerLayer: webpackRscLayerName,
-        resolve: { conditionNames: [`react-server`, `...`] },
+        resolve: { conditionNames: ["react-server", "..."] },
       },
       {
         oneOf: [

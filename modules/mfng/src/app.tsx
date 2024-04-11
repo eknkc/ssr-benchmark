@@ -1,4 +1,3 @@
-import * as React from "react";
 import { testData } from "testdata";
 
 export async function App() {

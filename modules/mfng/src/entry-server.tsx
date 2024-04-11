@@ -1,7 +1,6 @@
 import { createRscAppStream } from "@mfng/core/server/rsc";
 import { createHtmlStream } from "@mfng/core/server/ssr";
 import { IncomingMessage, ServerResponse } from "http";
-import * as React from "react";
 import { Readable } from "stream";
 import { ReadableStream } from "stream/web";
 import { Page } from "./page";
