@@ -1,0 +1,25 @@
+---
+import favicon from "./_favicon.svg"
+import { testData } from "testdata"
+
+const entries = await testData()
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href={favicon.src} />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+        <main>
+            <table>{entries.map(entry =>
+                <tr>
+                    <td>{entry.id}</td>
+                    <td>{entry.name}</td>
+                </tr>
+            )}</table>
+        </main>
+	</body>
+</html>
