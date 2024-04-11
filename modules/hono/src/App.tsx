@@ -1,11 +1,11 @@
-import { testData } from 'testdata'
+import { testData } from "testdata";
 
 function App() {
-  return <Table data={testData()} />
+  return <Table data={testData()} />;
 }
 
 async function Table({ data }: { data: ReturnType<typeof testData> }) {
-  const entries = await data
+  const entries = await data;
   return (
     <table>
       <tbody>
@@ -14,7 +14,7 @@ async function Table({ data }: { data: ReturnType<typeof testData> }) {
         ))}
       </tbody>
     </table>
-  )
+  );
 }
 
 function Entry(props: { entry: { id: string; name: string } }) {
@@ -23,7 +23,7 @@ function Entry(props: { entry: { id: string; name: string } }) {
       <td>{props.entry.id}</td>
       <td>{props.entry.name}</td>
     </tr>
-  )
+  );
 }
 
-export default App
+export default App;

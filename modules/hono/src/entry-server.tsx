@@ -1,10 +1,10 @@
-import App from './App'
-import { Hono } from 'hono'
-import { getRequestListener } from '@hono/node-server'
+import App from "./App";
+import { Hono } from "hono";
+import { getRequestListener } from "@hono/node-server";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', async (c) => {
+app.get("/", async (c) => {
   return c.html(
     <html lang="en">
       <head>
@@ -15,9 +15,9 @@ app.get('/', async (c) => {
         <App />
       </body>
     </html>
-  )
-})
+  );
+});
 
 export async function buildHandler() {
-  return getRequestListener(app.fetch)
+  return getRequestListener(app.fetch);
 }
