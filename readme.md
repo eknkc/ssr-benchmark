@@ -8,12 +8,13 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 
 | (index) | name        | ops/sec | average (ms)       | margin   | samples | relative to react |
 | ------- | ----------- | ------- | ------------------ | -------- | ------- | ----------------- |
-| 0       | 'react'     | 772     | 1.2943212499250736 | '±0.29%' | 7727    |                   |
-| 1       | 'sveltekit' | 609     | 1.640519383463647  | '±0.30%' | 6096    | '1.27 x slower'   |
-| 2       | 'solid'     | 573     | 1.7426678530948465 | '±0.42%' | 5739    | '1.35 x slower'   |
-| 3       | 'remix'     | 463     | 2.1593855976646634 | '±0.38%' | 4632    | '1.67 x slower'   |
-| 4       | 'vue'       | 312     | 3.1983727098159376 | '±1.07%' | 3127    | '2.47 x slower'   |
-| 5       | 'next'      | 53      | 18.85410655846928  | '±0.85%' | 531     | '14.57 x slower'  |
+| 0       | 'react'     | 770     | 1.297837667238734  | '±0.25%' | 7706    |                   |
+| 1       | 'sveltekit' | 612     | 1.6316538886157232 | '±0.30%' | 6129    | '1.26 x slower'   |
+| 2       | 'solid'     | 589     | 1.6975613133730456 | '±0.40%' | 5891    | '1.31 x slower'   |
+| 3       | 'remix'     | 467     | 2.137902762121296  | '±0.41%' | 4678    | '1.65 x slower'   |
+| 4       | 'vue'       | 297     | 3.365587217730757  | '±1.17%' | 2972    | '2.59 x slower'   |
+| 5       | 'nuxt'      | 290     | 3.445951336749581  | '±0.95%' | 2902    | '2.66 x slower'   |
+| 6       | 'next'      | 54      | 18.410872874233654 | '±0.83%' | 544     | '14.26 x slower'  |
 
 - Table has been updated thanks to [kiliman](https://github.com/kiliman). Remix now uses [defer](https://remix.run/docs/en/main/utils/defer) yielding much better results.
 
