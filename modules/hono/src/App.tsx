@@ -1,7 +1,12 @@
 import { testData } from "testdata";
+import { Suspense } from "hono/jsx";
 
 function App() {
-  return <Table data={testData()} />;
+  return (
+    <Suspense fallback={"loading..."}>
+      <Table data={testData()} />
+    </Suspense>
+  );
 }
 
 async function Table({ data }: { data: ReturnType<typeof testData> }) {
