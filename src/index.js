@@ -27,6 +27,10 @@ const handlers = [
     handler: await import("react-benchmark").then((x) => x.buildHandler()),
   },
   {
+    name: "preact",
+    handler: await import("preact-benchmark").then((x) => x.buildHandler()),
+  },
+  {
     name: "vue",
     handler: await import("vue-benchmark").then((x) => x.buildHandler()),
   },
