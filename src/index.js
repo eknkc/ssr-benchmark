@@ -1,7 +1,7 @@
 import { Bench } from "tinybench";
 import { IncomingMessage, ServerResponse } from "./http.js";
 import { buildRemixHandler } from "./remix.js";
-import { buildNextHandler } from "./next.js";
+import { buildNextHandler, buildNextPagesHandler } from "./next.js";
 import { buildNuxtHandler } from "./nuxt.js";
 import { buildSveltekitHandler } from "./svelte.js";
 import http from "node:http";
@@ -17,7 +17,7 @@ export async function run(handler, collect = false) {
   return response;
 }
 
-const bench = new Bench({ time: 15_000 });
+const bench = new Bench({ time: 10_000 });
 
 const handlers = [
   {
@@ -38,6 +38,7 @@ const handlers = [
   },
   { name: "remix", handler: await buildRemixHandler() },
   { name: "next", handler: await buildNextHandler() },
+  { name: "next-pages", handler: await buildNextPagesHandler() },
   { name: "nuxt", handler: await buildNuxtHandler() },
   { name: "sveltekit", handler: await buildSveltekitHandler() },
 ];
