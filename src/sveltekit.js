@@ -1,4 +1,4 @@
-import { handler } from "svelte-benchmark/build/handler.js";
+import { handler } from "sveltekit-benchmark/build/handler.js";
 
 export async function buildSveltekitHandler() {
   return handler;

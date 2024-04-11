@@ -1,0 +1,15 @@
+{
+	"name": "svelte-benchmark",
+	"version": "0.0.1",
+	"scripts": {
+		"build": "rollup -c",
+		"dev": "rollup -cw"
+	},
+	"devDependencies": {
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"rollup": "^4.14.1",
+		"rollup-plugin-svelte": "^7.2.0",
+		"svelte": "next"
+	},
+	"type": "module"
+}
