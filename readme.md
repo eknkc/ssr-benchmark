@@ -6,20 +6,22 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 
 ## Results
 
-| (index) | name        | ops/sec | average (ms)       | margin   | samples | body (kb) | duplication | relative to react |
-| ------- | ----------- | ------- | ------------------ | -------- | ------- | --------- | ----------- | ----------------- |
-| 0       | 'react'     | 770     | 1.2980486485074243 | '±0.17%' | 11556   | '97.28'   | 'x1.00'     | ''                |
-| 1       | 'sveltekit' | 617     | 1.6202060651259027 | '±0.26%' | 9259    | '184.46'  | 'x2.00'     | '1.25 x slower'   |
-| 2       | 'solid'     | 600     | 1.6662520333606508 | '±0.30%' | 9003    | '215.93'  | 'x2.00'     | '1.28 x slower'   |
-| 3       | 'remix'     | 471     | 2.120777278578165  | '±0.32%' | 7073    | '189.10'  | 'x2.00'     | '1.63 x slower'   |
-| 4       | 'vue'       | 297     | 3.36266085586971   | '±0.96%' | 4462    | '96.72'   | 'x1.00'     | '2.59 x slower'   |
-| 5       | 'nuxt'      | 279     | 3.5809983866799273 | '±0.77%' | 4189    | '97.57'   | 'x1.00'     | '2.76 x slower'   |
-| 6       | 'next'      | 54      | 18.312528462526274 | '±0.59%' | 820     | '284.64'  | 'x2.00'     | '14.26 x slower'  |
+| (index) | name        | ops/sec | average (ms) | samples | body (kb) | duplication | relative to react |
+| ------- | ----------- | ------- | ------------ | ------- | --------- | ----------- | ----------------- |
+| 0       | 'react'     | 765     | '1.306'      | 11485   | '97.28'   | 'x1.00'     | ''                |
+| 1       | 'sveltekit' | 616     | '1.622'      | 9246    | '184.46'  | 'x2.00'     | '1.24 x slower'   |
+| 2       | 'solid'     | 595     | '1.680'      | 8931    | '215.93'  | 'x2.00'     | '1.29 x slower'   |
+| 3       | 'remix'     | 469     | '2.130'      | 7043    | '189.10'  | 'x2.00'     | '1.63 x slower'   |
+| 4       | 'vue'       | 305     | '3.270'      | 4588    | '96.72'   | 'x1.00'     | '2.51 x slower'   |
+| 5       | 'nuxt'      | 280     | '3.566'      | 4207    | '97.57'   | 'x1.00'     | '2.73 x slower'   |
+| 6       | 'mfng'      | 68      | '14.569'     | 1030    | '317.31'  | 'x2.50'     | '11.25 x slower'  |
+| 7       | 'next'      | 54      | '18.252'     | 822     | '284.64'  | 'x2.00'     | '14.17 x slower'  |
 
 - **body** is the response body length in kb
 - **duplication** is the data duplication factor. 2x means each rendered data item has been observed twice in the response. It is required for hydration to work.
 
 - Table has been updated thanks to [kiliman](https://github.com/kiliman). Remix now uses [defer](https://remix.run/docs/en/main/utils/defer) yielding much better results.
+- **mfng** is a minimal RSC implementation. Important to see its results compared to Next as they both reflect the RSC rendering performance.
 
 ## Test Environment
 
