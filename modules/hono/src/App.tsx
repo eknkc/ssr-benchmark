@@ -5,11 +5,11 @@ function App() {
 }
 
 async function Table({ data }: { data: ReturnType<typeof testData> }) {
-  const tdata = await data
+  const entries = await data
   return (
     <table>
       <tbody>
-        {tdata.map((entry) => (
+        {entries.map((entry) => (
           <Entry entry={entry} />
         ))}
       </tbody>
