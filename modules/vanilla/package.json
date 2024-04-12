@@ -1,0 +1,14 @@
+{
+  "name": "vanilla-benchmark",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build --ssr src/entry-server.ts --outDir dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "main": "dist/entry-server.js"
+}
