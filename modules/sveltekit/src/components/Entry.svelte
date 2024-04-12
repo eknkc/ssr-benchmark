@@ -1,5 +1,7 @@
 <script lang="ts">
-  export let entry: { id: string; name: string };
+  import type { EntryData } from "$lib/type";
+
+  export let entry: EntryData
 </script>
 
 <tr>
