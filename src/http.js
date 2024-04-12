@@ -19,6 +19,8 @@ export class IncomingMessage extends Readable {
 
   readable = false;
 
+  socket = {};
+
   constructor() {
     super();
   }
