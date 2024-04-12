@@ -18,7 +18,12 @@ export async function run(handler, collect = false) {
   return response;
 }
 
-const bench = new Bench({ time: 10_000 });
+const bench = new Bench({
+  time: 10_000,
+  setup: async (task, mode) => {
+    if (mode == "run") console.log(`Running ${task.name} benchmark...`);
+  },
+});
 
 const handlers = [
   {
