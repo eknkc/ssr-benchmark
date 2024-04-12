@@ -4,6 +4,7 @@ import { buildRemixHandler } from "./remix.js";
 import { buildNextHandler, buildNextPagesHandler } from "./next.js";
 import { buildNuxtHandler } from "./nuxt.js";
 import { buildSveltekitHandler } from "./svelte.js";
+import { buildAstroHandler } from "./astro.js";
 import http from "node:http";
 import { getDuplicationFactor, logResultsTable } from "./result-format.js";
 
@@ -41,6 +42,7 @@ const handlers = [
   { name: "next-pages", handler: await buildNextPagesHandler() },
   { name: "nuxt", handler: await buildNuxtHandler() },
   { name: "sveltekit", handler: await buildSveltekitHandler() },
+  { name: "astro", handler: await buildAstroHandler() },
 ];
 
 for (let handler of handlers) {
