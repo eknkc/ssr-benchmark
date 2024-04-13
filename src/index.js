@@ -20,7 +20,7 @@ async function run(handler, collect = false) {
 
 async function runHandlers(handlers) {
   const bench = new Bench({
-    time: 10_000,
+    time: 100,
     setup: async (task, mode) => {
       if (mode == "run") console.log(`Running ${task.name} benchmark...`);
     },
@@ -81,6 +81,11 @@ const handlers = [
     handler: await buildSveltekitHandler(),
   },
   { name: "astro", group: "frameworks", handler: await buildAstroHandler() },
+  {
+    name: "hono",
+    group: "renderers",
+    handler: await import("hono-benchmark").then((x) => x.buildHandler()),
+  },
 ];
 
 console.log("Benchmarking frameworks");

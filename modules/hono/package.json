@@ -1,0 +1,20 @@
+{
+  "name": "hono-benchmark",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build --ssr src/entry-server.tsx --outDir dist"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
+  },
+  "types": "dist/entry-server.d.ts",
+  "main": "dist/entry-server.js",
+  "dependencies": {
+    "@hono/node-server": "^1.9.1",
+    "hono": "^4.2.3"
+  }
+}
