@@ -91,6 +91,11 @@ const handlers = [
     group: "renderers",
     handler: await import("marko-benchmark").then((x) => x.buildHandler()),
   },
+  {
+    name: "kita",
+    group: "renderers",
+    handler: await import("kita-benchmark").then((x) => x.handler),
+  },
 ];
 
 console.log("Benchmarking frameworks");

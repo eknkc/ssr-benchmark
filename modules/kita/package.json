@@ -1,0 +1,19 @@
+{
+  "name": "kita-benchmark",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/entry-server.js",
+  "types": "dist/entry-server.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@kitajs/html": "^4.1.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.4.5"
+  }
+}
