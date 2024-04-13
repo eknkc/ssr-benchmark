@@ -86,6 +86,11 @@ const handlers = [
     group: "renderers",
     handler: await import("hono-benchmark").then((x) => x.buildHandler()),
   },
+  {
+    name: "marko",
+    group: "renderers",
+    handler: await import("marko-benchmark").then((x) => x.buildHandler()),
+  },
 ];
 
 console.log("Benchmarking frameworks");
