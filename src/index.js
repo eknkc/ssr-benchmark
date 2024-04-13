@@ -20,7 +20,7 @@ async function run(handler, collect = false) {
 
 async function runHandlers(handlers) {
   const bench = new Bench({
-    time: 100,
+    time: 10_000,
     setup: async (task, mode) => {
       if (mode == "run") console.log(`Running ${task.name} benchmark...`);
     },
