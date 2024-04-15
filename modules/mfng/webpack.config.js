@@ -46,7 +46,7 @@ export default {
   module: {
     rules: [
       {
-        resource: [/\/server\/rsc\//, /\/page\.tsx$/],
+        resource: [/[/\\]server[/\\]rsc[/\\]/, /[/\\]page\.tsx$/],
         layer: webpackRscLayerName,
       },
       {
