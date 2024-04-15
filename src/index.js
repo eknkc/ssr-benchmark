@@ -98,18 +98,18 @@ const handlers = [
   },
   {
     name: "qwik",
+    group: "frameworks",
     handler: await import("qwik-benchmark/server/entry.preview.js").then(
-      (x) => {
-        return (req, res, next = () => res.end()) => {
+      (mod) =>
+        (req, res, next = () => res.end()) => {
           // fix some issues with the request object
           if (!req.connection) {
             req.connection = {
               encrypted: false,
             };
           }
-          return x.default.router(req, res, next);
-        };
-      }
+          return mod.default.router(req, res, next);
+        }
     ),
   },
 ];
