@@ -1,0 +1,19 @@
+import { testData } from "testdata";
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <await(testData())>
+    <@then|data|>
+      <table>
+        <for|entry| of=data>
+          <tr>
+            <td>${entry.id}</td>
+            <td>${entry.name}</td>
+          </tr>
+        </for>
+      </table>
+    </>
+  </await>
+</body>
+</html>

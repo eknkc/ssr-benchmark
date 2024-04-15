@@ -1,7 +1,7 @@
 <script setup>
 import { testData } from "testdata";
 
-const data = ref(await testData());
+const { data } = await useAsyncData(testData);
 </script>
 
 <template>
