@@ -48,6 +48,22 @@ const handlers = [
   { name: "nuxt", handler: await buildNuxtHandler() },
   { name: "sveltekit", handler: await buildSveltekitHandler() },
   { name: "astro", handler: await buildAstroHandler() },
+  {
+    name: "qwik",
+    handler: await import("qwik-benchmark/server/entry.preview.js").then(
+      (x) => {
+        return (req, res, next = () => res.end()) => {
+          // fix some issues with the request object
+          if (!req.connection) {
+            req.connection = {
+              encrypted: false,
+            };
+          }
+          return x.default.router(req, res, next);
+        };
+      }
+    ),
+  },
 ];
 
 for (let handler of handlers) {
