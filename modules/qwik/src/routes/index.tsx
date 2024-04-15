@@ -21,7 +21,7 @@ export default component$(() => {
   return (
     <table>
       <tbody>
-        {data.value?.map((entry, i) => (
+        {data.value.map((entry, i) => (
           <Entry key={i} id={entry.id} name={entry.name} />
         ))}
       </tbody>
