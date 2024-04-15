@@ -2,9 +2,12 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { testData } from "testdata";
 
-export const useData = routeLoader$(() => testData());
+type TestData = Awaited<ReturnType<typeof testData>>;
 
-function Entry(props: { id: string; name: string }) {
+// Route Loader for the data
+export const useData = routeLoader$<TestData>(() => testData());
+
+export function Entry(props: { id: string; name: string }) {
   return (
     <tr>
       <td>{props.id}</td>
@@ -14,11 +17,11 @@ function Entry(props: { id: string; name: string }) {
 }
 
 export default component$(() => {
-  const data = useData().value;
+  const data = useData();
   return (
     <table>
       <tbody>
-        {data?.map((entry: any, i: number) => (
+        {data.value?.map((entry, i) => (
           <Entry key={i} id={entry.id} name={entry.name} />
         ))}
       </tbody>
