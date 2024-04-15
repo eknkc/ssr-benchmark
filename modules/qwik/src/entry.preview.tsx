@@ -17,4 +17,13 @@ import render from "./entry.ssr";
 /**
  * The default export is the QwikCity adapter used by Vite preview.
  */
-export default createQwikCity({ render, qwikCityPlan });
+// some fixes for ssr-benchmark
+export async function handler(req: any, res: any, next = () => res.end()) {
+  if (!req.connection) {
+    req.connection = {
+      encrypted: false,
+    };
+  }
+  const app = createQwikCity({ render, qwikCityPlan });
+  return await app.router(req, res, next);
+}

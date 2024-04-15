@@ -13,7 +13,7 @@
   "type": "module",
   "main": "server/entry.preview.js",
   "scripts": {
-    "build": "qwik build && npm run build.preview",
+    "build": "NODE_ENV=production qwik build && npm run build.preview",
     "build.client": "vite build",
     "build.preview": "NODE_ENV=production vite build --ssr src/entry.preview.tsx",
     "build.types": "tsc --incremental --noEmit",
