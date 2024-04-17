@@ -98,8 +98,13 @@ const handlers = [
   },
   {
     name: "qwik",
-    group: "frameworks",
+    group: "renderers",
     handler: await import("qwik-benchmark").then((x) => x.handler),
+  },
+  {
+    name: "qwik-city",
+    group: "frameworks",
+    handler: await import("qwik-city-benchmark").then((x) => x.handler),
   },
 ];
 

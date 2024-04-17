@@ -10,20 +10,36 @@
  * - https://vitejs.dev/config/preview-options.html#preview-options
  *
  */
-import { createQwikCity } from "@builder.io/qwik-city/middleware/node";
-import qwikCityPlan from "@qwik-city-plan";
-import render from "./entry.ssr";
-
+import { renderToStream } from "@builder.io/qwik/server";
+import { manifest } from "@qwik-client-manifest";
+import Root from "./root";
+import { testData } from "testdata";
 /**
  * The default export is the QwikCity adapter used by Vite preview.
  */
 // some fixes for ssr-benchmark
-export async function handler(req: any, res: any, next = () => res.end()) {
-  if (!req.connection) {
-    req.connection = {
-      encrypted: false,
-    };
-  }
-  const app = createQwikCity({ render, qwikCityPlan });
-  return await app.router(req, res, next);
+export async function handler(req: any, res: any) {
+  res.writeHead(200, {
+    "content-type": "text/html",
+  });
+
+  const data = await testData();
+
+  const app = await renderToStream(<Root data={data} />, {
+    stream: {
+      write: (chunk) => {
+        res.write(chunk);
+      },
+    },
+    manifest,
+    // ...opts,
+    // Use container attributes to set attributes on the html tag.
+    containerAttributes: {
+      lang: "en-us",
+      // ...opts.containerAttributes,
+    },
+  });
+  res.end("");
 }
+
+export default handler;

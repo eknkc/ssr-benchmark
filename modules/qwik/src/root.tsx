@@ -1,27 +1,26 @@
-import { component$ } from "@builder.io/qwik";
-import {
-  QwikCityProvider,
-  RouterOutlet,
-  ServiceWorkerRegister,
-} from "@builder.io/qwik-city";
+import { component$, useSignal } from "@builder.io/qwik";
+import { type testData } from "testdata";
+
+type TestData = Awaited<ReturnType<typeof testData>>;
+
+export function Entry(props: { id: string; name: string }) {
+  return (
+    <tr>
+      <td>{props.id}</td>
+      <td>{props.name}</td>
+    </tr>
+  );
+}
 
 export default component$((props: any) => {
-  /**
-   * The root of a QwikCity site always start with the <QwikCityProvider> component,
-   * immediately followed by the document's <head> and <body>.
-   *
-   * Don't remove the `<head>` and `<body>` elements.
-   */
-
+  const data = useSignal<TestData>(props.data);
   return (
-    <QwikCityProvider>
-      <head>
-        <meta charSet="utf-8" />
-      </head>
-      <body lang="en">
-        <RouterOutlet />
-        <ServiceWorkerRegister />
-      </body>
-    </QwikCityProvider>
+    <table>
+      <tbody>
+        {data.value?.map((entry, i) => (
+          <Entry key={i} id={entry.id} name={entry.name} />
+        ))}
+      </tbody>
+    </table>
   );
 });

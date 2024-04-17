@@ -1,5 +1,5 @@
 {
-  "name": "qwik-benchmark",
+  "name": "qwik-city-benchmark",
   "description": "App with Routing built-in ready to create your app",
   "engines": {
     "node": "^20.3.0 || >=21.0.0"
@@ -30,7 +30,6 @@
   "devDependencies": {
     "@builder.io/qwik": "^1.5.2",
     "@builder.io/qwik-city": "^1.5.2",
-    "@builder.io/qwik-dom": "2.1.19",
     "@types/eslint": "^8.56.6",
     "@types/node": "^20.11.30",
     "@typescript-eslint/eslint-plugin": "^7.3.1",

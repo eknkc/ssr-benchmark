@@ -19,13 +19,9 @@ const { dependencies = {}, devDependencies = {} } = pkg as any as {
  */
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
-    build: {
-      // minify: false,
-      ssr: true,
-      rollupOptions: {
-        input: ["src/entry.preview.tsx", "@qwik-city-plan"],
-      },
-    },
+    // build: {
+    //   minify: false,
+    // },
     plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
