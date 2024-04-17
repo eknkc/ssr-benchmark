@@ -41,5 +41,8 @@
     "undici": "*",
     "vite": "^5.1.6",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "sharp": "0.33.3"
   }
 }

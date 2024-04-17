@@ -18,10 +18,9 @@
     "build.preview": "NODE_ENV=production vite build --ssr src/entry.preview.tsx",
     "build.types": "tsc --incremental --noEmit",
     "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
-    "dev": "vite --mode ssr",
-    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
-    "fmt": "prettier --write .",
-    "fmt.check": "prettier --check .",
+    "dev": "echo 'no dev only preview'",
+    "fmt": "echo 'prettier removed'",
+    "fmt.check": "echo 'prettier removed'",
     "lint": "echo 'eslint removed'",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
@@ -42,5 +41,8 @@
     "undici": "*",
     "vite": "^5.1.6",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "sharp": "0.33.3"
   }
 }

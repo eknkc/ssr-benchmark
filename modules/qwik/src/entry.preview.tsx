@@ -10,10 +10,8 @@
  * - https://vitejs.dev/config/preview-options.html#preview-options
  *
  */
-import { renderToStream } from "@builder.io/qwik/server";
-import { manifest } from "@qwik-client-manifest";
-import Root from "./root";
 import { testData } from "testdata";
+import render from "./entry.ssr";
 /**
  * The default export is the QwikCity adapter used by Vite preview.
  */
@@ -25,20 +23,15 @@ export async function handler(req: any, res: any) {
 
   const data = await testData();
 
-  const app = await renderToStream(<Root data={data} />, {
+  const app = await render({
+    data,
     stream: {
       write: (chunk) => {
         res.write(chunk);
       },
     },
-    manifest,
-    // ...opts,
-    // Use container attributes to set attributes on the html tag.
-    containerAttributes: {
-      lang: "en-us",
-      // ...opts.containerAttributes,
-    },
   });
+
   res.end("");
 }
 

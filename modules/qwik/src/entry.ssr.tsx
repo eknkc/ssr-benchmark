@@ -17,8 +17,8 @@ import {
 import { manifest } from "@qwik-client-manifest";
 import Root from "./root";
 
-export default async function (opts: RenderToStreamOptions) {
-  return renderToStream(<Root />, {
+export default async function (opts: RenderToStreamOptions & { data: any }) {
+  return renderToStream(<Root data={opts.data} />, {
     manifest,
     ...opts,
     // Use container attributes to set attributes on the html tag.
