@@ -27,3 +27,5 @@ export async function handler(req: any, res: any, next = () => res.end()) {
   const app = createQwikCity({ render, qwikCityPlan });
   return await app.router(req, res, next);
 }
+
+export default handler;
