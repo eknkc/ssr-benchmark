@@ -8,14 +8,14 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 
 | (index) | name         | ops/sec | average (ms) | samples | body (kb) | duplication | relative to react |
 | ------- | ------------ | ------- | ------------ | ------- | --------- | ----------- | ----------------- |
-| 0       | 'react'      | 779     | '1.283'      | 7793    | '97.28'   | 'x1.00'     | ''                |
-| 1       | 'sveltekit'  | 607     | '1.647'      | 6073    | '184.46'  | 'x2.00'     | '1.28 x slower'   |
-| 2       | 'remix'      | 462     | '2.163'      | 4624    | '189.10'  | 'x2.00'     | '1.69 x slower'   |
-| 3       | 'nuxt'       | 198     | '5.040'      | 1985    | '201.05'  | 'x2.00'     | '3.93 x slower'   |
-| 4       | 'next-pages' | 114     | '8.766'      | 1141    | '187.67'  | 'x2.00'     | '6.83 x slower'   |
-| 5       | 'astro'      | 105     | '9.447'      | 1059    | '99.91'   | 'x1.00'     | '7.42 x slower'   |
-| 6       | 'mfng'       | 68      | '14.609'     | 685     | '317.31'  | 'x2.50'     | '11.46 x slower'  |
-| 7       | 'next'       | 53      | '18.578'     | 539     | '284.64'  | 'x2.00'     | '14.70 x slower'  |
+| 0       | 'react'      | 776     | '1.288'      | 7765    | '97.28'   | 'x1.00'     | ''                |
+| 1       | 'sveltekit'  | 580     | '1.724'      | 5802    | '184.46'  | 'x2.00'     | '1.34 x slower'   |
+| 2       | 'remix'      | 461     | '2.166'      | 4618    | '189.10'  | 'x2.00'     | '1.68 x slower'   |
+| 3       | 'nuxt'       | 352     | '2.834'      | 3530    | '201.05'  | 'x2.00'     | '2.20 x slower'   |
+| 4       | 'next-pages' | 114     | '8.739'      | 1145    | '187.67'  | 'x2.00'     | '6.81 x slower'   |
+| 5       | 'astro'      | 109     | '9.101'      | 1099    | '99.91'   | 'x1.00'     | '7.12 x slower'   |
+| 6       | 'mfng'       | 68      | '14.584'     | 686     | '317.31'  | 'x2.50'     | '11.41 x slower'  |
+| 7       | 'next'       | 54      | '18.401'     | 544     | '284.64'  | 'x2.00'     | '14.37 x slower'  |
 
 - **react** is here only as a baseline renderer to compare framework performance with.
 
@@ -23,12 +23,12 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 
 | (index) | name    | ops/sec | average (ms) | samples | body (kb) | duplication | relative to marko |
 | ------- | ------- | ------- | ------------ | ------- | --------- | ----------- | ----------------- |
-| 0       | 'marko' | 6678    | '0.150'      | 66784   | '96.74'   | 'x1.00'     | ''                |
-| 1       | 'kita'  | 3151    | '0.317'      | 31518   | '97.34'   | 'x1.00'     | '2.12 x slower'   |
-| 2       | 'hono'  | 948     | '1.054'      | 9486    | '97.15'   | 'x1.00'     | '7.04 x slower'   |
-| 3       | 'react' | 775     | '1.289'      | 7760    | '97.28'   | 'x1.00'     | '8.62 x slower'   |
-| 4       | 'solid' | 616     | '1.622'      | 6167    | '215.93'  | 'x2.00'     | '10.84 x slower'  |
-| 5       | 'vue'   | 289     | '3.458'      | 2892    | '96.72'   | 'x1.00'     | '23.11 x slower'  |
+| 0       | 'marko' | 6604    | '0.151'      | 66044   | '96.74'   | 'x1.00'     | ''                |
+| 1       | 'kita'  | 2921    | '0.342'      | 29217   | '97.34'   | 'x1.00'     | '2.26 x slower'   |
+| 2       | 'vue'   | 1098    | '0.911'      | 10982   | '96.72'   | 'x1.00'     | '6.01 x slower'   |
+| 3       | 'hono'  | 970     | '1.031'      | 9704    | '97.15'   | 'x1.00'     | '6.81 x slower'   |
+| 4       | 'react' | 779     | '1.283'      | 7795    | '97.28'   | 'x1.00'     | '8.48 x slower'   |
+| 5       | 'solid' | 613     | '1.631'      | 6131    | '215.93'  | 'x2.00'     | '10.77 x slower'  |
 
 - **solid** is here but it also carries hydration data for client side hydration, it is more comparable to frameworks in that way.
 

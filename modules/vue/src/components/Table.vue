@@ -1,10 +1,8 @@
 <script setup>
 import Entry from "./Entry.vue";
-
-import { ref } from "vue";
 import { testData } from "testdata";
 
-const data = ref(await testData());
+const data = await testData();
 </script>
 
 <template>
