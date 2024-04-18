@@ -8,14 +8,14 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 
 | (index) | name         | ops/sec | average (ms) | samples | body (kb) | duplication | relative to react |
 | ------- | ------------ | ------- | ------------ | ------- | --------- | ----------- | ----------------- |
-| 0       | 'react'      | 776     | '1.288'      | 7765    | '97.28'   | 'x1.00'     | ''                |
-| 1       | 'sveltekit'  | 580     | '1.724'      | 5802    | '184.46'  | 'x2.00'     | '1.34 x slower'   |
-| 2       | 'remix'      | 461     | '2.166'      | 4618    | '189.10'  | 'x2.00'     | '1.68 x slower'   |
-| 3       | 'nuxt'       | 352     | '2.834'      | 3530    | '201.05'  | 'x2.00'     | '2.20 x slower'   |
-| 4       | 'next-pages' | 114     | '8.739'      | 1145    | '187.67'  | 'x2.00'     | '6.81 x slower'   |
-| 5       | 'astro'      | 109     | '9.101'      | 1099    | '99.91'   | 'x1.00'     | '7.12 x slower'   |
-| 6       | 'mfng'       | 68      | '14.584'     | 686     | '317.31'  | 'x2.50'     | '11.41 x slower'  |
-| 7       | 'next'       | 54      | '18.401'     | 544     | '284.64'  | 'x2.00'     | '14.37 x slower'  |
+| 0       | 'react'      | 763     | '1.309'      | 7640    | '97.28'   | 'x1.00'     | ''                |
+| 1       | 'sveltekit'  | 608     | '1.645'      | 6081    | '184.46'  | 'x2.00'     | '1.25 x slower'   |
+| 2       | 'remix'      | 464     | '2.155'      | 4641    | '189.10'  | 'x2.00'     | '1.64 x slower'   |
+| 3       | 'nuxt'       | 395     | '2.530'      | 3952    | '201.12'  | 'x2.00'     | '1.93 x slower'   |
+| 4       | 'next-pages' | 114     | '8.765'      | 1141    | '187.67'  | 'x2.00'     | '6.69 x slower'   |
+| 5       | 'astro'      | 109     | '9.141'      | 1095    | '99.91'   | 'x1.00'     | '7.00 x slower'   |
+| 6       | 'mfng'       | 69      | '14.468'     | 692     | '317.31'  | 'x2.50'     | '11.06 x slower'  |
+| 7       | 'next'       | 54      | '18.412'     | 544     | '284.64'  | 'x2.00'     | '14.13 x slower'  |
 
 - **react** is here only as a baseline renderer to compare framework performance with.
 
