@@ -8,32 +8,33 @@ This is not a comprehensive or scientific test. Just wanted to compare each in a
 
 | (index) | name         | ops/sec | average (ms) | samples | body (kb) | duplication | relative to react |
 | ------- | ------------ | ------- | ------------ | ------- | --------- | ----------- | ----------------- |
-| 0       | 'react'      | 763     | '1.309'      | 7640    | '97.28'   | 'x1.00'     | ''                |
-| 1       | 'sveltekit'  | 608     | '1.645'      | 6081    | '184.46'  | 'x2.00'     | '1.25 x slower'   |
-| 2       | 'remix'      | 464     | '2.155'      | 4641    | '189.10'  | 'x2.00'     | '1.64 x slower'   |
-| 3       | 'nuxt'       | 395     | '2.530'      | 3952    | '201.12'  | 'x2.00'     | '1.93 x slower'   |
-| 4       | 'next-pages' | 114     | '8.765'      | 1141    | '187.67'  | 'x2.00'     | '6.69 x slower'   |
-| 5       | 'astro'      | 109     | '9.141'      | 1095    | '99.91'   | 'x1.00'     | '7.00 x slower'   |
-| 6       | 'mfng'       | 69      | '14.468'     | 692     | '317.31'  | 'x2.50'     | '11.06 x slower'  |
-| 7       | 'next'       | 54      | '18.412'     | 544     | '284.64'  | 'x2.00'     | '14.13 x slower'  |
+| 0       | 'react'      | 766     | '1.305'      | 7663    | '97.28'   | 'x1.00'     | ''                |
+| 1       | 'sveltekit'  | 589     | '1.696'      | 5898    | '184.46'  | 'x2.00'     | '1.30 x slower'   |
+| 2       | 'remix'      | 449     | '2.224'      | 4497    | '189.10'  | 'x2.00'     | '1.71 x slower'   |
+| 3       | 'nuxt'       | 381     | '2.622'      | 3814    | '201.12'  | 'x2.00'     | '2.01 x slower'   |
+| 4       | 'qwik-city'  | 278     | '3.584'      | 2790    | '139.21'  | 'x1.00'     | '2.76 x slower'   |
+| 5       | 'next-pages' | 104     | '9.590'      | 1043    | '187.67'  | 'x2.00'     | '7.37 x slower'   |
+| 6       | 'astro'      | 99      | '10.077'     | 993     | '99.91'   | 'x1.00'     | '7.74 x slower'   |
+| 7       | 'mfng'       | 69      | '14.372'     | 696     | '317.31'  | 'x2.50'     | '11.10 x slower'  |
+| 8       | 'next'       | 53      | '18.673'     | 536     | '284.64'  | 'x2.00'     | '14.45 x slower'  |
 
 - **react** is here only as a baseline renderer to compare framework performance with.
+- ⚠️ **duplication** is the data duplication factor. 2x means each rendered data item has been observed twice in the response. It is required for hydration to work. For those it is 1x, the hydration data is missing.
 
 ## Renderers
 
 | (index) | name    | ops/sec | average (ms) | samples | body (kb) | duplication | relative to marko |
 | ------- | ------- | ------- | ------------ | ------- | --------- | ----------- | ----------------- |
-| 0       | 'marko' | 6604    | '0.151'      | 66044   | '96.74'   | 'x1.00'     | ''                |
-| 1       | 'kita'  | 2921    | '0.342'      | 29217   | '97.34'   | 'x1.00'     | '2.26 x slower'   |
-| 2       | 'vue'   | 1098    | '0.911'      | 10982   | '96.72'   | 'x1.00'     | '6.01 x slower'   |
-| 3       | 'hono'  | 970     | '1.031'      | 9704    | '97.15'   | 'x1.00'     | '6.81 x slower'   |
-| 4       | 'react' | 779     | '1.283'      | 7795    | '97.28'   | 'x1.00'     | '8.48 x slower'   |
-| 5       | 'solid' | 613     | '1.631'      | 6131    | '215.93'  | 'x2.00'     | '10.77 x slower'  |
+| 0       | 'marko' | 6675    | '0.150'      | 66759   | '96.74'   | 'x1.00'     | ''                |
+| 1       | 'kita'  | 3074    | '0.325'      | 30742   | '97.34'   | 'x1.00'     | '2.17 x slower'   |
+| 2       | 'hono'  | 945     | '1.058'      | 9452    | '97.15'   | 'x1.00'     | '7.06 x slower'   |
+| 3       | 'vue'   | 897     | '1.114'      | 8977    | '96.72'   | 'x1.00'     | '7.44 x slower'   |
+| 4       | 'react' | 764     | '1.308'      | 7649    | '97.28'   | 'x1.00'     | '8.74 x slower'   |
+| 5       | 'qwik'  | 622     | '1.605'      | 6230    | '137.88'  | 'x1.00'     | '10.73 x slower'  |
+| 6       | 'solid' | 613     | '1.630'      | 6137    | '215.93'  | 'x2.00'     | '10.89 x slower'  |
 
 - **solid** is here but it also carries hydration data for client side hydration, it is more comparable to frameworks in that way.
-
 - **body** is the response body length in kb
-- **duplication** is the data duplication factor. 2x means each rendered data item has been observed twice in the response. It is required for hydration to work.
 
 - Table has been updated thanks to [kiliman](https://github.com/kiliman). Remix now uses [defer](https://remix.run/docs/en/main/utils/defer) yielding much better results.
 - **mfng** is a minimal RSC implementation. Important to see its results compared to Next as they both reflect the RSC rendering performance.
