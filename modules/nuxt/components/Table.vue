@@ -1,7 +1,5 @@
 <script setup>
-import { testData } from "testdata";
-
-const { data } = await useAsyncData(testData);
+const { data } = await useAsyncData(() => import('testdata').then(r => r.testData()), { deep: false });
 </script>
 
 <template>
