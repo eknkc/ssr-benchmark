@@ -2,7 +2,7 @@
 
 This is an experiment in response to https://twitter.com/thdxr/status/1777782835249553517 where it is stated that Next.JS is a lot slower on server side rendering compared to Vanilla React.
 
-This is not a comprehensive or scientific test. Just wanted to compare each in a setup a little complex than just printing `hello world`.
+This is not a comprehensive or scientific test. Just wanted to compare each in a setup a little more complex than just printing `hello world`.
 
 ## Frameworks
 
