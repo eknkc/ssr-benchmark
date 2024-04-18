@@ -1,0 +1,48 @@
+{
+  "name": "qwik-benchmark",
+  "description": "App with Routing built-in ready to create your app",
+  "engines": {
+    "node": "^20.3.0 || >=21.0.0"
+  },
+  "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
+  "private": true,
+  "trustedDependencies": [
+    "sharp"
+  ],
+  "trustedDependencies-annotation": "Needed for bun to allow running install scripts",
+  "type": "module",
+  "main": "server/entry.preview.js",
+  "scripts": {
+    "build": "NODE_ENV=production qwik build && npm run build.preview",
+    "build.client": "vite build",
+    "build.preview": "NODE_ENV=production vite build --ssr src/entry.preview.tsx",
+    "build.types": "tsc --incremental --noEmit",
+    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+    "dev": "echo 'no dev only preview'",
+    "fmt": "echo 'prettier removed'",
+    "fmt.check": "echo 'prettier removed'",
+    "lint": "echo 'eslint removed'",
+    "preview": "qwik build preview && vite preview --open",
+    "start": "vite --open --mode ssr",
+    "qwik": "qwik"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "^1.5.2",
+    "@builder.io/qwik-city": "^1.5.2",
+    "@builder.io/qwik-dom": "2.1.19",
+    "@types/eslint": "^8.56.6",
+    "@types/node": "^20.11.30",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-qwik": "^1.5.2",
+    "prettier": "^3.2.5",
+    "typescript": "5.3.3",
+    "undici": "*",
+    "vite": "^5.1.6",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "sharp": "0.33.3"
+  }
+}
