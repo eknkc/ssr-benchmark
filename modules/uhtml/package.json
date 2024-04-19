@@ -1,0 +1,11 @@
+{
+  "name": "uhtml-benchmark",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo '👋'"
+  },
+  "dependencies": {
+    "uhtml": "^4.5.8"
+  }
+}

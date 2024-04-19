@@ -106,6 +106,11 @@ const handlers = [
     group: "frameworks",
     handler: await import("qwik-city-benchmark").then((x) => x.handler),
   },
+  {
+    name: "uhtml",
+    group: "renderers",
+    handler: await import("uhtml-benchmark").then((x) => x.handler),
+  },
 ];
 
 console.log("Benchmarking frameworks");
